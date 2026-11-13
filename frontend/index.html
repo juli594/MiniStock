@@ -1,0 +1,57 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniStock | Inventario</title>
+</head>
+<body>
+    
+    <h1>MiniStock</h1>
+    <p>sistema de control de inventario</p>
+
+    <form id="formulario-producto">
+
+        <input type="text" id="nombre" placeholder="nombre del producto">
+
+        <input type="text" id="categoria" placeholder="categoria">
+
+        <input type="text" id="marca" placeholder="marca">
+
+        <input type="number" id="precio-compra" placeholder="precio de compra">
+
+        <input type="number" id="precio-venta" placeholder="precio de venta">
+
+        <input type="number" id="cantidad" placeholder="cantidad">
+
+        <input type="number" id="stock-minimo" placeholder="stock minimo">
+
+        <button type="submit">registrar producto</button>
+
+        <section>
+            <h2>inventarios de producto</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Categoria</th>
+                        <th>Marca</th>
+                        <th>precio de compra</th>
+                        <th>precio de venta</th>
+                        <th>cantidad</th>
+                        <th>Stock minimo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tabla-productos"
+                ></tbody>
+            </table>
+        </section>
+
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
