@@ -69,6 +69,35 @@ formulario.addEventListener("submit", async (evento) => {
 // Seleccionar el cuerpo de la tabla HTML
 const tablaProductos = document.getElementById("tabla-productos");
 
+let productosRegistrados= [];
+
+const buscadorProductos = document.getElementById("buscar-producto");
+
+buscadorProductos.addEventListener("input", function(){
+
+    const textoBuscado = buscadorProductos.value.trim().toLowerCase();
+
+    const filas =  tablaProductos.getElementsByTagName("tr");
+
+    for(let i =0; i < filas.length; i++){
+
+        const nombre  = filas[i].cells[1].textContent.toLowerCase();
+
+        const categoria = filas[i].cells[2].textContent.toLowerCase();
+
+        const marca = filas[i].cells[3].textContent.toLowerCase();
+
+        if(nombre.includes(textoBuscado)  || 
+    categoria.includes(textoBuscado) ||
+    marca.includes(textoBuscado))
+    { 
+        filas[i].style.display = "";
+    }else{
+           filas[i].style.display = "none";
+    }
+}
+});
+
 // Crear función para consultar los productos
 async function cargarProductos() {
 
@@ -84,6 +113,8 @@ async function cargarProductos() {
 
         // Convertir la respuesta JSON en un arreglo
         const productos = await respuesta.json();
+
+        productosRegistrados = productos;
 
         // Limpiar la tabla antes de mostrar los productos
         tablaProductos.innerHTML = "";
